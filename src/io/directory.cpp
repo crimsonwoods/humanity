@@ -11,7 +11,7 @@
 #include <cerrno>
 #include <stack>
 
-HUMANITY_NS_BEGIN
+HUMANITY_IO_NS_BEGIN
 
 /**
  * ディレクトリエントリの実装用内部データ構造
@@ -97,7 +97,7 @@ bool directory_entry::is_regular() const
  */
 struct directory::impl {
 	/** DIR型のインスタンス */
-	auto_res<DIR> dir_;
+	unique_ptr<DIR, int(*)(DIR*)> dir_;
 	/** 現在のエントリを保持するインスタンス */
 	directory_entry entry_;
 
@@ -323,5 +323,5 @@ bool directory::mkdir(path const &dir_path)
 	return true;
 }
 
-HUMANITY_NS_END
+HUMANITY_IO_NS_END
 

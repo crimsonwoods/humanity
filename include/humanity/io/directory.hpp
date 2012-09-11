@@ -6,13 +6,13 @@
 #ifndef HUMANITY_IO_DIRECTORY_H
 #define HUMANITY_IO_DIRECTORY_H
 
-#include <humanity/humanity.hpp>
+#include <humanity/io/io.hpp>
 #include <humanity/memory.hpp>
 #include <cstring>
 #include <string>
 #include <vector>
 
-HUMANITY_NS_BEGIN
+HUMANITY_IO_NS_BEGIN
 
 class path;
 
@@ -77,7 +77,7 @@ private:
 	auto_ptr<impl> pimpl;
 };
 
-HUMANITY_NS_END
+HUMANITY_IO_NS_END
 
 #endif // end of APPVERIFIER_DIRECTORY_H
 

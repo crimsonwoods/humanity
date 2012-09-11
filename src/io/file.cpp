@@ -6,7 +6,7 @@
 #include <sys/stat.h>
 #include <unistd.h>
 
-HUMANITY_NS_BEGIN
+HUMANITY_IO_NS_BEGIN
 
 /**
  * ファイルがシンボリックリンクかどうか判定する
@@ -107,5 +107,5 @@ bool file::rename(path const &src, path const &dst)
 	return false;
 }
 
-HUMANITY_NS_END
+HUMANITY_IO_NS_END
 

@@ -6,11 +6,12 @@
 #ifndef HUMANITY_IO_PATH_H
 #define HUMANITY_IO_PATH_H
 
-#include <humanity/humanity.hpp>
+#include <humanity/io/io.hpp>
 #include <humanity/memory.hpp>
 #include <string>
 
-HUMANITY_NS_BEGIN
+//HUMANITY_IO_NS_BEGIN
+namespace Humanity { namespace io {
 
 /**
  * ファイルのパスを扱うクラス
@@ -52,7 +53,7 @@ private:
 	auto_ptr<impl> pimpl;
 };
 
-HUMANITY_NS_END
+HUMANITY_IO_NS_END
 
 #endif // end of HUMANITY_IO_PATH_H
 

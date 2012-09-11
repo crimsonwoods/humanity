@@ -6,9 +6,9 @@
 #ifndef HUMANITY_IO_FILE_H
 #define HUMANITY_IO_FILE_H
 
-#include <humanity/humanity.hpp>
+#include <humanity/io/io.hpp>
 
-HUMANITY_NS_BEGIN
+HUMANITY_IO_NS_BEGIN
 
 class path;
 
@@ -51,7 +51,7 @@ public:
 	static bool rename(path const &src, path const &dst);
 };
 
-HUMANITY_NS_END
+HUMANITY_IO_NS_END
 
 #endif // end of HUMANITY_IO_FILE_H
 

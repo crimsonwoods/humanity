@@ -1,6 +1,6 @@
 /**
  * ログ出力用マクロの定義ファイル
- * @file android/log.hpp
+ * @file humanity/android/log.hpp
  */
 
 #ifndef HUMANITY_ANDROID_LOG_H

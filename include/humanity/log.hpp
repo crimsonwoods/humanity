@@ -1,5 +1,5 @@
 /**
- * @file log.hpp
+ * @file humanity/log.hpp
  */
 
 #ifndef HUMANITY_LOG_H

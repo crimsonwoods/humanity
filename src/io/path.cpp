@@ -8,7 +8,7 @@
 #define C_FILE_SEPARATOR '/'
 #define S_FILE_SEPARATOR "/"
 
-HUMANITY_NS_BEGIN
+HUMANITY_IO_NS_BEGIN
 
 typedef std::stack<std::string> path_element_stack;
 static void split(std::string const &str, path_element_stack &elements);
@@ -343,5 +343,5 @@ static std::string to_canonical(std::string const &str)
 	return build(stack);
 }
 
-HUMANITY_NS_END
+HUMANITY_IO_NS_END
 
