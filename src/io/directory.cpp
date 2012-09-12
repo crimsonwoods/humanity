@@ -116,9 +116,7 @@ directory::directory(path const &path)
 {
 	if (!path.empty()) {
 		DIR *dir = ::opendir(path.full_path());
-		if (NULL == dir) {
-			throw system_call_error("failed to open directory", errno);
-		}
+		THROW_IF(NULL == dir, system_call_error, "failed to open directory", errno);
 		pimpl.reset(new impl(dir));
 	}
 }
@@ -135,9 +133,7 @@ bool directory::next()
 {
 	dirent *result = NULL;
 	int const err = readdir_r(pimpl->dir_.get(), &pimpl->entry_.pimpl->entry_, &result);
-	if (0 != err) {
-		throw system_call_error("failed to read directory", err);
-	}
+	THROW_IF(0 != err, system_call_error, "failed to read directory", err);
 	if (NULL == result) {
 		return false;
 	}

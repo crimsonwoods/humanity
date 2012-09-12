@@ -27,7 +27,7 @@ bool file::is_link(path const &path)
 		return false;
 	}
 
-	throw HUMANITY_NS::system_call_error("cannot get file status", errno);
+	THROW(system_call_error, "cannot get file status", errno);
 }
 
 /**
@@ -49,7 +49,7 @@ bool file::is_exist(path const &path)
 	if ((ENOENT == e) || (ENOTDIR == e)) {
 		return false;
 	}
-	throw system_call_error("cannot check file existense", e);
+	THROW(system_call_error, "cannot check file existense", e);
 }
 
 /**

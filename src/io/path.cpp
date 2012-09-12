@@ -204,9 +204,7 @@ std::string path::file_name() const
 			continue;
 		}
 		if (top == std::string("..")) {
-			if (stack.empty()) {
-				throw std::runtime_error("cannot over the top level directory");
-			}
+			THROW_IF(stack.empty(), std::runtime_error, "cannot over the top level directory");
 			stack.pop();
 			continue;
 		}
@@ -318,9 +316,7 @@ static std::string build(path_element_stack &elements)
 					elements.pop();
 				}
 			}
-			if (elements.empty() && (elem == S_FILE_SEPARATOR)) {
-				throw std::runtime_error("cannot over the top level directory");
-			}
+			THROW_IF(elements.empty() && (elem == S_FILE_SEPARATOR), std::runtime_error, "cannot over the top level directory");
 			pop_count = 0;
 			continue;
 		}

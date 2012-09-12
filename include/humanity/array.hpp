@@ -44,18 +44,12 @@ public:
 
     /** 引数で指定した位置の要素を取得する */
     reference at(size_type pos) {
-#ifdef _EXCEPTION
-        if (pos >= Size_)
-            throw std::out_of_range("index out of range");
-#endif
+        THROW_IF(pos >= Size_, std::out_of_range, "index out of range");
         return array_[pos];
     }
     /** 引数で指定した位置の要素を取得する */
     const_reference at(size_type pos) const {
-#ifdef _EXCEPTION
-        if (pos >= Size_)
-            throw std::out_of_range("index out of range");
-#endif
+        THROW_IF(pos >= Size_, std::out_of_range, "index out of range");
         return array_[pos];
     }
 

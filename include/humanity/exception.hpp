@@ -6,12 +6,13 @@
 #ifndef HUMANITY_EXCEPTION_H
 #define HUMANITY_EXCEPTION_H
 
-#if defined(_EXCEPTINOS) || defined(__EXCEPTIONS)
-
 #include <humanity/humanity.hpp>
-#include <stdexcept>
-#include <cstring>
-#include <cerrno>
+
+#if defined(HUMANITY_ENABLE_EXCEPTIONS)
+
+#  include <stdexcept>
+#  include <cstring>
+#  include <cerrno>
 
 HUMANITY_NS_BEGIN
 
@@ -53,7 +54,24 @@ public:
 
 HUMANITY_NS_END
 
-#endif // end of _EXCEPTION
+#  define THROW(type, ...)              throw type( __VA_ARGS__ )
+#  define THROW_IF(cond, type, ...)     if ((cond))  { THROW(type, ##__VA_ARGS__ ); }
+#  define THROW_IF_NOT(cond, type, ...) if (!(cond)) { THROW(type, ##__VA_ARGS__ ); }
+
+#elif defined(HUMANITY_USE_ASSERT_INSTEAD_OF_EXCEPTIONS)
+
+#  include <cassert>
+#  define THROW(type, ...)              assert(false)
+#  define THROW_IF(cond, type, ...)     assert(!(cond))
+#  define THROW_IF_NOT(cond, type, ...) assert((cond))
+
+#else
+
+#  define THROW(type, ...)              
+#  define THROW_IF(cond, type, ...)     
+#  define THROW_IF_NOT(cond, type, ...) 
+
+#endif // end of HUMANITY_ENABLE_EXCEPTIONS
 
 #endif // end of HUMANITY_EXCEPTION_H
 

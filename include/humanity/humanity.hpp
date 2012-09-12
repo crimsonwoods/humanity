@@ -17,5 +17,7 @@ HUMANITY_NS_END
 
 #include <stdint.h>
 
+#include <humanity/humanity_config.hpp>
+
 #endif // end of HUMANITY_H
 
