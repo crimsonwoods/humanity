@@ -143,7 +143,10 @@ public:
 	 * @param deleter リソースを削除するためのオブジェクト・関数ポインタなど
 	 */
 	unique_ptr(pointer ptr, Del_ deleter) : ptr_(ptr), deleter_(deleter) {}
-	~unique_ptr() {}
+	~unique_ptr() {
+		if (ptr_)
+			deleter_(ptr_);
+	}
     /** !演算子の実装 */
     bool operator !() const {
         return !ptr_;
